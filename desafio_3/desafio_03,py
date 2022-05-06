@@ -121,11 +121,16 @@ def find_answer(target_number, vector_of_numbers) -> list[list]:
         solutions = potential_solutions
         count += 1
 
-
 # Execução
-target_number = input_target_number()
-vector_of_numbers = input_vector_of_numbers()
-all_answers = find_answer(target_number, vector_of_numbers)
+def run_program():
+    target_number = input_target_number()
+    vector_of_numbers = input_vector_of_numbers()
+    all_answers = find_answer(target_number, vector_of_numbers)
+    os.system('cls')
+    print(target_number)
 
-for answer in all_answers:
-    print(answer)
+    for answer in all_answers:
+        print(answer)
+
+
+run_program()
