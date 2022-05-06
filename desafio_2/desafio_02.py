@@ -30,6 +30,7 @@ def input_student_limit() -> int:
         else:
             return int(user_input)
 
+
 def input_arrival_time() -> list:
     while True:
         os.system('cls')
@@ -54,13 +55,15 @@ def input_arrival_time() -> list:
                 input()
                 continue
 
+
 def is_input_valid(student_limit: int, arrival_time: list) -> bool:
     if student_limit < len(arrival_time):
         return True
     else:
         return False
 
-def class_status_1(student_limit: int, arrival_time: list) -> None: # Método 1: loop
+
+def class_status_1(student_limit: int, arrival_time: list) -> None:  # Método 1: loop
     punctual_students = 0
     for time in arrival_time:
         if time <= 0:
@@ -73,7 +76,8 @@ def class_status_1(student_limit: int, arrival_time: list) -> None: # Método 1:
     else:
         print(msg_normal_class)
 
-def class_status_2(student_limit: int, arrival_time: list) -> None: # Método 2: sorted list
+
+def class_status_2(student_limit: int, arrival_time: list) -> None:  # Método 2: sorted list
     arrival_time.sort()
 
     if arrival_time[student_limit] <= 0:
@@ -92,5 +96,6 @@ def run_program():
     else:
         print(msg_warning_input)
         print(msg_cancelled_class)
+
 
 run_program()
