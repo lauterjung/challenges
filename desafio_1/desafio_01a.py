@@ -26,5 +26,6 @@ print(f"Existem {len(result_list)} números com essa propriedade de 1 até {end}
 # Output .txt
 output_file = open("output_01a.txt", "w")
 output_file.write("\n".join(result_list))
-output_file.write(f"\nExistem {len(result_list)} números com essa propriedade de 1 até {end}")
+output_file.write(
+    f"\nExistem {len(result_list)} números com essa propriedade de 1 até {end}")
 output_file.close()

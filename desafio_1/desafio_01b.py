@@ -4,6 +4,7 @@ def x_to_reverse_number(x: int) -> int:
     reverse_string_x = string_x[::-1]
     return int(reverse_string_x)
 
+
 def check_all_odd_digits(x: int) -> bool:
     string_x = str(x)
     for digit in string_x:
@@ -18,7 +19,7 @@ result_list = []
 for x in range(11, end-1):
     string_number = str(x)
     end_number = string_number[len(string_number)-1]
-    
+
     if end_number == "0":
         continue
 
@@ -34,5 +35,6 @@ print(f"Existem {len(result_list)} números com essa propriedade de 1 até {end}
 # Output .txt
 output_file = open("output_01b.txt", "w")
 output_file.write("\n".join(result_list))
-output_file.write(f"\nExistem {len(result_list)} números com essa propriedade de 1 até {end}")
+output_file.write(
+    f"\nExistem {len(result_list)} números com essa propriedade de 1 até {end}")
 output_file.close()
