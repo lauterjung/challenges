@@ -53,7 +53,7 @@ def input_vector_of_numbers() -> list:
                 continue
 
 
-def remove_duplicates(list_of_vectors) -> list[list]:
+def remove_duplicates(list_of_vectors: list) -> list[list]:
     result = []
     for combination in list_of_vectors:
         new_list = list(combination)
@@ -63,33 +63,32 @@ def remove_duplicates(list_of_vectors) -> list[list]:
     return result
 
 
-def create_vector_combination(vector, size) -> list[tuple]:
+def create_vector_combination(vector: list, size: int) -> list[tuple]:
     unique_vector = list(set(vector))
     list_of_vectors = []
     for i in range(size):
         list_of_vectors.append(unique_vector)
-    vector_combinations = list(itertools.product(*list_of_vectors))
-    result = remove_duplicates(vector_combinations)
-    return(result)
+    vector_combinations = itertools.product(*list_of_vectors)
+    return(vector_combinations)
 
 
-def sum_of_vector(vector_of_numbers):
+def sum_of_vector(vector_of_numbers: list) -> float:
     total = 0
     for value in vector_of_numbers:
         total = total + value
     return total
 
 
-def find_answer(target_number, vector_of_numbers) -> list[list]:
+def find_answer(target_number: int, vector_of_numbers: list) -> list[list]:
     count = 1
 
     while True:
-        vector_combination = create_vector_combination(
-            vector_of_numbers, count)
+        print(count)
+        vector_combination = create_vector_combination(vector_of_numbers, count)
         potential_solutions = []
 
         for i, vector in enumerate(vector_combination):
-            sum = sum_of_vector(vector)
+            sum = sum_of_vector(list(vector))
             absolute_difference = abs(target_number - sum)
 
             if i == 0:
@@ -111,11 +110,11 @@ def find_answer(target_number, vector_of_numbers) -> list[list]:
             continue
 
         if minimum_difference == 0:
-            return potential_solutions
+            return remove_duplicates(potential_solutions)
 
         second_minimum_difference = minimum_difference
         if second_minimum_difference >= first_minimum_difference:
-            return solutions
+            return remove_duplicates(solutions)
 
         first_minimum_difference = minimum_difference
         solutions = potential_solutions
