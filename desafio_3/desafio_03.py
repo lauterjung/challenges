@@ -6,7 +6,7 @@ import json
 # Constantes
 msg_input_target_number: Final[str] = "N = "
 msg_input_vector_of_numbers: Final[str] = "V = "
-msg_error_positive_int: Final[str] = "Digite um número inteiro positivo. Digite Enter para continuar..."
+msg_error_number: Final[str] = "Digite um número. Digite Enter para continuar..."
 msg_error_vector_of_numbers_input: Final[str] = "Formato incorreto. Siga o padrão [1, 2, ...]. Digite Enter para continuar..."
 
 # Funções
@@ -17,15 +17,12 @@ def input_target_number() -> int:
         user_input = input()
 
         try:
-            int_input = int(user_input)
-            if int_input < 0:
-                print(msg_error_positive_int)
-                continue
+            int_input = float(user_input)
         except ValueError:
-            print(msg_error_positive_int)
+            print(msg_error_number)
             input()
         else:
-            return int(user_input)
+            return float(user_input)
 
 
 def input_vector_of_numbers() -> list:
